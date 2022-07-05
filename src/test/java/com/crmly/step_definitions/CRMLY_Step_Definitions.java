@@ -12,6 +12,7 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.Keys;
 
 public class CRMLY_Step_Definitions {
+
     CRMLY_LoginPage crmlyLoginPage = new CRMLY_LoginPage();
     CRMLYPage crmlyPage = new CRMLYPage();
 
@@ -34,11 +35,16 @@ public class CRMLY_Step_Definitions {
     public void user_click_upload_files_icon_and_upload_files_and_images_box_is_seen() {
         crmlyPage.uploadFilesButton.click();
         crmlyPage.uploadFilesAndImagesBox.isDisplayed();
+        BrowserUtils.sleep(2000);
     }
 
     @Then("user upload files in different formats and see these files are uploaded")
     public void user_upload_files_in_different_formats_and_see_these_files_are_uploaded() {
 
+        crmlyPage.uploadFilesAndImagesBox.sendKeys("C:\\Users\\n\\Desktop\\language\\esl kids\\clownfacecolored.JPG");
+        //crmlyPage.uploadFilesAndImagesBox.sendKeys("C:\\Users\\n\\Desktop\\language\\esl kids\\games.pdf");
+        //crmlyPage.uploadFilesAndImagesBox.sendKeys("C:\\Users\\n\\Desktop\\englishworkshop\\OPPOSITES.docx");
+        BrowserUtils.sleep(2000);
     }
 
     @When("user upload pictures")
@@ -96,12 +102,27 @@ public class CRMLY_Step_Definitions {
 
     @Then("user should upload at least three files at a time")
     public void userShouldUploadAtLeastThreeFilesAtATime() {
+
+        crmlyPage.uploadFilesAndImagesBox.sendKeys("C:\\Users\\n\\Desktop\\language\\esl kids\\clownfacecolored.JPG");
+        crmlyPage.uploadFilesAndImagesBox.sendKeys("C:\\Users\\n\\Desktop\\language\\esl kids\\games.pdf");
+        crmlyPage.uploadFilesAndImagesBox.sendKeys("C:\\Users\\n\\Desktop\\englishworkshop\\OPPOSITES.docx");
+
     }
 
     @And("user upload multiple files at a time")
     public void userUploadMultipleFilesAtATime() {
 
+        crmlyPage.uploadFilesAndImagesBox.sendKeys("C:\\Users\\n\\Desktop\\language\\esl kids\\clownfacecolored.JPG");
+        crmlyPage.uploadFilesAndImagesBox.sendKeys("C:\\Users\\n\\Desktop\\language\\esl kids\\games.pdf");
+        crmlyPage.uploadFilesAndImagesBox.sendKeys("C:\\Users\\n\\Desktop\\englishworkshop\\OPPOSITES.docx");
+
     }
 
 
+    @Then("user should see at least three files are uploaded")
+    public void userShouldSeeAtLeastThreeFilesAreUploaded() {
+        crmlyPage.filesUploadedOne.isDisplayed();
+        crmlyPage.filesUploadedTwo.isDisplayed();
+        crmlyPage.filesUploadedThree.isDisplayed();
+    }
 }

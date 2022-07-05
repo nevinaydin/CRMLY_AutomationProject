@@ -22,8 +22,19 @@ public class CRMLYPage {
     @FindBy(id="bx-b-uploadfile-blogPostForm")
     public WebElement uploadFilesButton;
 
-    @FindBy(xpath = "//input[@name='bxu_files[]']")
+    @FindBy(xpath = "//input[@class='diskuf-fileUploader wd-test-file-light-inp ']")
     public WebElement uploadFilesAndImagesBox;
+
+    @FindBy(xpath = "//span[@class='f-wrap'][1]")
+    public WebElement filesUploadedOne;
+
+    @FindBy(xpath = "//span[@class='f-wrap'][2]")
+    public WebElement filesUploadedTwo;
+
+    @FindBy(xpath = "//span[@class='f-wrap'][3]")
+    public WebElement filesUploadedThree;
+
+
 
 
 }
