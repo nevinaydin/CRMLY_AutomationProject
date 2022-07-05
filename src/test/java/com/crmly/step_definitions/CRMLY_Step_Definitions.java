@@ -9,7 +9,10 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.Keys;
+
+import java.awt.*;
 
 public class CRMLY_Step_Definitions {
 
@@ -36,15 +39,43 @@ public class CRMLY_Step_Definitions {
         crmlyPage.uploadFilesButton.click();
         crmlyPage.uploadFilesAndImagesBox.isDisplayed();
         BrowserUtils.sleep(2000);
+
+
+    }
+
+
+    @Then("user should upload at least three files at a time")
+    public void userShouldUploadAtLeastThreeFilesAtATime() {
+        String path = "C:\\Users\\n\\Desktop\\language\\esl_kids\\clownfacecolored.JPG";
+        path = "C:\\Users\\n\\Desktop\\language\\esl_kids\\clownfacecolored.JPG";
+        //crmlyPage.uploadFilesAndImagesBox.sendKeys("C:\\Users\\n\\Desktop\\language\\esl kids\\clownfacecolored.JPG");
+       // crmlyPage.uploadFilesAndImagesBox.sendKeys(path,Keys.ENTER);
+        crmlyPage.uploadFilesAndImagesBox.sendKeys(path);
+
+        //"C:\Users\n\Desktop\language\esl_kids\clownfacecolored.JPG"
+        //crmlyPage.uploadFilesAndImagesBox.sendKeys("C:\\Users\\n\\Desktop\\englishworkshop\\OPPOSITES.docx");
+        BrowserUtils.sleep(3000);
+
+
+
+    }
+
+    @Then("user should see at least three files are uploaded")
+    public void userShouldSeeAtLeastThreeFilesAreUploaded() {
+        Assert.assertTrue(crmlyPage.filesUploadedOne.isDisplayed());
+
     }
 
     @Then("user upload files in different formats and see these files are uploaded")
     public void user_upload_files_in_different_formats_and_see_these_files_are_uploaded() {
+        String path = "C:\\Users\\n\\Desktop\\language\\esl_kids\\clownfacecolored.JPG";
+        path = "C:/Users/n/Desktop/language/esl_kids/clownfacecolored.JPG";
+        //crmlyPage.uploadFilesAndImagesBox.sendKeys("C:\\Users\\n\\Desktop\\language\\esl kids\\clownfacecolored.JPG");
+        // crmlyPage.uploadFilesAndImagesBox.sendKeys(path,Keys.ENTER);
+        crmlyPage.uploadFilesAndImagesBox.sendKeys("C:\\Users\\n\\Desktop\\englishworkshop\\OPPOSITES.docx");
+        BrowserUtils.sleep(3000);
+        Assert.assertTrue(crmlyPage.filesUploadedOne.isDisplayed());
 
-        crmlyPage.uploadFilesAndImagesBox.sendKeys("C:\\Users\\n\\Desktop\\language\\esl kids\\clownfacecolored.JPG");
-        //crmlyPage.uploadFilesAndImagesBox.sendKeys("C:\\Users\\n\\Desktop\\language\\esl kids\\games.pdf");
-        //crmlyPage.uploadFilesAndImagesBox.sendKeys("C:\\Users\\n\\Desktop\\englishworkshop\\OPPOSITES.docx");
-        BrowserUtils.sleep(2000);
     }
 
     @When("user upload pictures")
@@ -100,29 +131,5 @@ public class CRMLY_Step_Definitions {
 
     }
 
-    @Then("user should upload at least three files at a time")
-    public void userShouldUploadAtLeastThreeFilesAtATime() {
 
-        crmlyPage.uploadFilesAndImagesBox.sendKeys("C:\\Users\\n\\Desktop\\language\\esl kids\\clownfacecolored.JPG");
-        crmlyPage.uploadFilesAndImagesBox.sendKeys("C:\\Users\\n\\Desktop\\language\\esl kids\\games.pdf");
-        crmlyPage.uploadFilesAndImagesBox.sendKeys("C:\\Users\\n\\Desktop\\englishworkshop\\OPPOSITES.docx");
-
-    }
-
-    @And("user upload multiple files at a time")
-    public void userUploadMultipleFilesAtATime() {
-
-        crmlyPage.uploadFilesAndImagesBox.sendKeys("C:\\Users\\n\\Desktop\\language\\esl kids\\clownfacecolored.JPG");
-        crmlyPage.uploadFilesAndImagesBox.sendKeys("C:\\Users\\n\\Desktop\\language\\esl kids\\games.pdf");
-        crmlyPage.uploadFilesAndImagesBox.sendKeys("C:\\Users\\n\\Desktop\\englishworkshop\\OPPOSITES.docx");
-
-    }
-
-
-    @Then("user should see at least three files are uploaded")
-    public void userShouldSeeAtLeastThreeFilesAreUploaded() {
-        crmlyPage.filesUploadedOne.isDisplayed();
-        crmlyPage.filesUploadedTwo.isDisplayed();
-        crmlyPage.filesUploadedThree.isDisplayed();
-    }
 }
