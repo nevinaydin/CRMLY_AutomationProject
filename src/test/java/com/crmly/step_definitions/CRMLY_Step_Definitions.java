@@ -83,7 +83,7 @@ public class CRMLY_Step_Definitions {
         crmlyPage.uploadFilesAndImagesBox.sendKeys(pathTXT);
         BrowserUtils.sleep(2);
         crmlyPage.uploadFilesAndImagesBox.sendKeys(pathGIF);
-        BrowserUtils.sleep(4);
+        BrowserUtils.sleep(2);
 
         for (WebElement eachUploadedFile : crmlyPage.filesUploaded) {
             if (eachUploadedFile.getText().contains("JPG") || eachUploadedFile.getText().contains("png")
@@ -133,8 +133,8 @@ public class CRMLY_Step_Definitions {
         }
     }
 
-    @Then("user click {string} button in order to insert the files and images into the text")
-    public void user_click_button_in_order_to_insert_the_files_and_images_into_the_text(String string) {
+    @Then("user click insert in text button in order to insert the files and images into the text")
+    public void user_click_button_in_order_to_insert_the_files_and_images_into_the_text(){
         for (WebElement InsertInTextButton : crmlyPage.insertInTextButton) {
             InsertInTextButton.click();
             break;
@@ -159,7 +159,7 @@ public class CRMLY_Step_Definitions {
 
     @Then("user verify that recipient is allowed to edit documents")
     public void user_verify_that_recipient_is_allowed_to_edit_documents() {
-        crmlyPage.allowRecipientCheckBox.isEnabled();
+        Assert.assertTrue(crmlyPage.allowRecipientCheckBox.isEnabled());
 
 
     }
@@ -179,7 +179,7 @@ public class CRMLY_Step_Definitions {
     @Then("user can rename the file before sending")
     public void user_can_rename_the_file_before_sending() {
         String fileNameBefore = crmlyPage.editFileNameBox.getText();
-        //System.out.println(crmlyPage.editFileNameBox.getText());
+        System.out.println(crmlyPage.editFileNameBox.getText());
 
         Actions actions = new Actions(Driver.getDriver());
         actions.moveToElement(crmlyPage.editFileNameBox).perform();
@@ -194,7 +194,7 @@ public class CRMLY_Step_Definitions {
                 .sendKeys("Renamed")
                 .sendKeys(Keys.ENTER)
                 .perform();
-        //System.out.println(crmlyPage.editFileNameBox.getText());
+        System.out.println(crmlyPage.editFileNameBox.getText());
         String fileNameAfter = crmlyPage.editFileNameBox.getText();
         Assert.assertFalse(fileNameBefore.equals(fileNameAfter));
 

@@ -32,8 +32,9 @@ Feature: CRMLY  file upload as message functionality
   Scenario:  User should be able to insert the files and images into the text
 
     And user upload files in different formats and see these files are uploaded
-    Then user click "insert in text" button in order to insert the files and images into the text
+    Then user click insert in text button in order to insert the files and images into the text
     Then user verify the files and images are inserted into the text
+
 
   Scenario: User should be able to allow a recipient to edit documents.
 
@@ -41,10 +42,12 @@ Feature: CRMLY  file upload as message functionality
     And user click Allow a recipient to edit documents? check box
     Then user verify that recipient is allowed to edit documents
 
+
   Scenario: User should be able to remove files and images at any time before sending.
 
     And user upload files in different formats and see these files are uploaded
     Then user verify that user can remove files and images at any time before sending
+
 
   Scenario:  User should be able to rename the file before sending it.
 
