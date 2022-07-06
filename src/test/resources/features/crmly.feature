@@ -11,19 +11,23 @@ Feature: CRMLY  file upload as message functionality
     When user should upload at least three files at a time
     Then user should see at least three files are uploaded
 
+
   Scenario: User should be able to upload files in different formats
 
     Then user upload files in different formats and see these files are uploaded
+
 
   Scenario: User should be able to upload pictures
 
     And user upload pictures
     Then user should see that pictures are uploaded
 
+
   Scenario: User should be able to display the uploaded picture itself in Activity Stream.
 
     And user verify that the uploaded picture itself is seen in Activity Stream when the message is sent.
     Then user see message is sent and uploaded picture itself is displayed in Activity Stream.
+
 
   Scenario:  User should be able to insert the files and images into the text
 
@@ -40,7 +44,7 @@ Feature: CRMLY  file upload as message functionality
   Scenario: User should be able to remove files and images at any time before sending.
 
     And user upload files in different formats and see these files are uploaded
-    Then user verify that user can remove files and images at ant time before sending
+    Then user verify that user can remove files and images at any time before sending
 
   Scenario:  User should be able to rename the file before sending it.
 

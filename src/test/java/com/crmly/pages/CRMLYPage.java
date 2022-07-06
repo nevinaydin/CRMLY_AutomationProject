@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class CRMLYPage {
 
     public CRMLYPage() {
@@ -22,17 +24,47 @@ public class CRMLYPage {
     @FindBy(id="bx-b-uploadfile-blogPostForm")
     public WebElement uploadFilesButton;
 
-    @FindBy(xpath = "//input[@name='bxu_files[]']")
+    @FindBy(name="bxu_files[]")
     public WebElement uploadFilesAndImagesBox;
 
-    @FindBy(xpath = "//span[@class='f-wrap'][1]")
-    public WebElement filesUploadedOne;
+    @FindBy(xpath = "//span[@class='f-wrap']")
+    public List<WebElement> filesUploaded;
 
-    @FindBy(xpath = "//span[@class='f-wrap'][2]")
-    public WebElement filesUploadedTwo;
+    @FindBy(xpath="//div[.='Photo:']")
+    public WebElement photoText;
 
-    @FindBy(xpath = "//span[@class='f-wrap'][3]")
-    public WebElement filesUploadedThree;
+    @FindBy(className = "feed-com-files-cont")
+    public List<WebElement> imagesUploaded;
+
+    @FindBy(xpath = "//span[.='Insert in text']")
+    public List<WebElement> insertInTextButton;
+
+    @FindBy(xpath = "//span[.='In text']")
+    public List<WebElement> inTextButton;
+
+
+    @FindBy(xpath ="//input[@name='BLOG_POST_DISK_ATTACHED_OBJECT_ALLOW_EDIT']")
+    public WebElement allowRecipientCheckBox;
+
+    @FindBy(xpath = "//span[@class='del-but']")
+    public List<WebElement> delButton;
+
+    @FindBy(xpath = "//span[@class='files-name-edit-btn']")
+    public WebElement editFileNameButton;
+
+    @FindBy(xpath = "//span[@class='f-wrap']")
+    public WebElement editFileNameBox;
+
+   // @FindBy(xpath ="//input[@class='files-text.files-name-editable']")
+    //public WebElement editFileNameBoxEditable;
+
+    //@FindBy(xpath="//input[@class='files-name-edit-inp']")
+   // public WebElement fileTitle;
+
+
+
+
+
 
 
 
