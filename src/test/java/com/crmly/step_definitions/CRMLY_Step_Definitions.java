@@ -98,7 +98,7 @@ public class CRMLY_Step_Definitions {
 
     @When("user upload pictures")
     public void user_upload_pictures() {
-        String pathJPG = "https://github.com/nevinaydingezer/CRMLY_AutomationProject/blob/master/src/test/resources/filesToUpload/clownfacecolored.JPG"";
+        String pathJPG = "https://github.com/nevinaydingezer/CRMLY_AutomationProject/blob/master/src/test/resources/filesToUpload/clownfacecolored.JPG";
         String pathPNG = "https://github.com/nevinaydingezer/CRMLY_AutomationProject/blob/master/src/test/resources/filesToUpload/NicePng_house-outline-png_974690.png";
         crmlyPage.uploadFilesAndImagesBox.sendKeys(pathJPG);
         crmlyPage.uploadFilesAndImagesBox.sendKeys(pathPNG);
