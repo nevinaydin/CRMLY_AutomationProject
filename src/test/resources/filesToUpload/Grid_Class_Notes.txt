@@ -1,0 +1,53 @@
+## Setting up Hub and Node
+Creating Hub and Node using virtual machine can be heavy, expensive and error prone. 
+
+It's relatively easy to setup Hub and Node using Docker container.
+- Docker is lightweight **just enough operating system** for specific need.
+- It can be created from **template** known as `Docker image`.
+- Multiple container can work together to serve like mutiple VMs. 
+- It can be easily managed by a docker fucntionality called `docker-compose`
+  - It's use a file to control what need to happen 
+  - We want to create a **hub**
+  - We want to create multiple **nodes**
+  - We want to register these nodes to hub so it can manage it
+  - We will do all these using **pre-written compose file**
+
+## Creating new AWS EC2 Instance 
+- We will create another EC2 Machine that have Linux operating system
+  - We will use **script** to install tools needed:
+  - Install docker inside the Linux machine
+  - Install other tools needed for running container
+  - Use **pre-written compose file** to setup hub and node
+  - Navigate to the Hub URL to see the nodes and capability
+  - Go to IntelliJ and **update the IP address for Hub**
+  - Run the code and observe !!!!
+
+
+  #!/bin/bash
+sudo yum update -y &&  
+sudo amazon-linux-extras install -y docker && 
+sudo service docker start && 
+sudo usermod -a -G docker ec2-user && 
+sudo chkconfig docker on && 
+sudo yum install -y git && 
+sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose && 
+sudo chmod +x /usr/local/bin/docker-compose && 
+docker-compose version && 
+sudo curl -L https://cybertek-shared.s3.amazonaws.com/docker-compose.yml -o /home/ec2-user/docker-compose.yml && 
+sudo reboot
+
+
+Once your ec2 instance is initialized and fully launched
+
+* Conntect to the machine using the connect button 
+* You will be inside the Command line interface of Linux machine of yours 
+* type command ls it will show one file exists that that location 
+* the file docker-compose.yml has everything we need to spin up hub and nodes for selenium
+* type this command 
+    docker-compose up -d
+ 
+* It will download and run all necessary part of setting up everything
+* Once it's done navigate to URL below
+ 
+Open browser and navigate to this URL : 
+http://YOUR_SERVER_IP:4444/grid/console
