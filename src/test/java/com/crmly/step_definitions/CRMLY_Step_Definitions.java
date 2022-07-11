@@ -41,9 +41,9 @@ public class CRMLY_Step_Definitions {
 
     @Then("user should upload at least three files at a time")
     public void userShouldUploadAtLeastThreeFilesAtATime() {
-        String pathJPG = "https://github.com/nevinaydingezer/CRMLY_AutomationProject/blob/master/src/test/resources/filesToUpload/clownfacecolored.JPG";
-        String pathPNG = "https://github.com/nevinaydingezer/CRMLY_AutomationProject/blob/master/src/test/resources/filesToUpload/NicePng_house-outline-png_974690.png";
-        String pathPDF = "https://github.com/nevinaydingezer/CRMLY_AutomationProject/blob/master/src/test/resources/filesToUpload/OPPOSITES.pdf";
+        String pathJPG = "src/test/resources/filesToUpload/clownfacecolored.JPG";
+        String pathPNG = "src/test/resources/filesToUpload/NicePng_house-outline-png_974690.png";
+        String pathPDF = "src/test/resources/filesToUpload/OPPOSITES.pdf";
 
         crmlyPage.uploadFilesAndImagesBox.sendKeys(pathJPG);
         crmlyPage.uploadFilesAndImagesBox.sendKeys(pathPNG);
