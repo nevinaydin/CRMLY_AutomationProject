@@ -41,13 +41,24 @@ public class CRMLY_Step_Definitions {
 
     @Then("user should upload at least three files at a time")
     public void userShouldUploadAtLeastThreeFilesAtATime() {
-        String pathJPG = "https://github.com/nevinaydingezer/CRMLY_AutomationProject/blob/f62bb80a265ee1c4519c0cc418ab0b72acc49861/src/test/resources/filesToUpload/clownfacecolored.JPG";
-        String pathPNG = "https://github.com/nevinaydingezer/CRMLY_AutomationProject/blob/f62bb80a265ee1c4519c0cc418ab0b72acc49861/src/test/resources/filesToUpload/NicePng_house-outline-png_974690.png";
-        String pathPDF = "https://github.com/nevinaydingezer/CRMLY_AutomationProject/blob/f62bb80a265ee1c4519c0cc418ab0b72acc49861/src/test/resources/filesToUpload/OPPOSITES.pdf";
+       // String pathJPG = "C:\\Users\\Public\\clownfacecolored.JPG";
+       // String pathPNG = "C:\\Users\\Public\\NicePng_house-outline-png_974690.png";
+       // String pathPDF = "C:\\Users\\Public\\OPPOSITES.pdf";
+        String projectPath=System.getProperty("user.dir");
+        String filePathJPG= "src\\test\\resources\\clownfacecolored.JPG";
+        String fullPathJPG=projectPath+"\\"+filePathJPG;
+        String filePathPNG= "src\\test\\resources\\NicePng_house-outline-png_974690.png";
+        String fullPathPNG=projectPath+"\\"+filePathPNG;
+        String filePathPDF= "src\\test\\resources\\NicePng_house-outline-png_974690.png";
+        String fullPathPDF=projectPath+"\\"+filePathPDF;
+        System.out.println(fullPathJPG);
+        System.out.println(fullPathPNG);
+        System.out.println(fullPathPDF);
 
-        crmlyPage.uploadFilesAndImagesBox.sendKeys(pathJPG);
-        crmlyPage.uploadFilesAndImagesBox.sendKeys(pathPNG);
-        crmlyPage.uploadFilesAndImagesBox.sendKeys(pathPDF);
+
+        crmlyPage.uploadFilesAndImagesBox.sendKeys(fullPathJPG);
+        crmlyPage.uploadFilesAndImagesBox.sendKeys(fullPathPNG);
+        crmlyPage.uploadFilesAndImagesBox.sendKeys(fullPathPDF);
         BrowserUtils.sleep(2);
     }
 
@@ -67,12 +78,12 @@ public class CRMLY_Step_Definitions {
 
     @Then("user upload files in different formats and see these files are uploaded")
     public void user_upload_files_in_different_formats_and_see_these_files_are_uploaded() {
-        String pathJPG = "https://github.com/nevinaydingezer/CRMLY_AutomationProject/blob/f62bb80a265ee1c4519c0cc418ab0b72acc49861/src/test/resources/filesToUpload/clownfacecolored.JPG";
-        String pathPNG = "https://github.com/nevinaydingezer/CRMLY_AutomationProject/blob/f62bb80a265ee1c4519c0cc418ab0b72acc49861/src/test/resources/filesToUpload/NicePng_house-outline-png_974690.png";
-        String pathPDF = "https://github.com/nevinaydingezer/CRMLY_AutomationProject/blob/f62bb80a265ee1c4519c0cc418ab0b72acc49861/src/test/resources/filesToUpload/OPPOSITES.pdf";
-        String pathDOC = "https://github.com/nevinaydingezer/CRMLY_AutomationProject/blob/f62bb80a265ee1c4519c0cc418ab0b72acc49861/src/test/resources/filesToUpload/OPPOSITES.docx";
-        String pathTXT = "https://github.com/nevinaydingezer/CRMLY_AutomationProject/blob/f62bb80a265ee1c4519c0cc418ab0b72acc49861/src/test/resources/filesToUpload/Grid_Class_Notes.txt";
-        String pathGIF = "https://github.com/nevinaydingezer/CRMLY_AutomationProject/blob/f62bb80a265ee1c4519c0cc418ab0b72acc49861/src/test/resources/filesToUpload/wait_16.gif";
+        String pathJPG = "C:\\Users\\Public\\clownfacecolored.JPG";
+        String pathPNG = "C:\\Users\\Public\\NicePng_house-outline-png_974690.png";
+        String pathPDF = "C:\\Users\\Public\\OPPOSITES.pdf";
+        String pathDOC = "C:\\Users\\Public\\OPPOSITES.docx";
+        String pathTXT = "C:\\Users\\Public\\Grid_Class_Notes.txt";
+        String pathGIF = "C:\\Users\\Public\\wait_16.gif";
 
         crmlyPage.uploadFilesAndImagesBox.sendKeys(pathJPG);
         crmlyPage.uploadFilesAndImagesBox.sendKeys(pathPNG);
@@ -98,8 +109,8 @@ public class CRMLY_Step_Definitions {
 
     @When("user upload pictures")
     public void user_upload_pictures() {
-        String pathJPG = "https://github.com/nevinaydingezer/CRMLY_AutomationProject/blob/f62bb80a265ee1c4519c0cc418ab0b72acc49861/src/test/resources/filesToUpload/clownfacecolored.JPG";
-        String pathPNG = "https://github.com/nevinaydingezer/CRMLY_AutomationProject/blob/f62bb80a265ee1c4519c0cc418ab0b72acc49861/src/test/resources/filesToUpload/NicePng_house-outline-png_974690.png";
+        String pathJPG = "C:\\Users\\Public\\clownfacecolored.JPG";
+        String pathPNG = "C:\\Users\\Public\\NicePng_house-outline-png_974690.png";
         crmlyPage.uploadFilesAndImagesBox.sendKeys(pathJPG);
         crmlyPage.uploadFilesAndImagesBox.sendKeys(pathPNG);
         BrowserUtils.sleep(2);
