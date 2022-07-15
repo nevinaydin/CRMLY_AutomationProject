@@ -9,10 +9,12 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.LocalFileDetector;
+import org.openqa.selenium.remote.RemoteWebElement;
+
+import java.io.File;
 
 public class CRMLY_Step_Definitions {
 
@@ -41,25 +43,45 @@ public class CRMLY_Step_Definitions {
 
     @Then("user should upload at least three files at a time")
     public void userShouldUploadAtLeastThreeFilesAtATime() {
-       // String pathJPG = "C:\\Users\\Public\\clownfacecolored.JPG";
-       // String pathPNG = "C:\\Users\\Public\\NicePng_house-outline-png_974690.png";
-       // String pathPDF = "C:\\Users\\Public\\OPPOSITES.pdf";
-        String projectPath=System.getProperty("user.dir");
-        String filePathJPG= "src\\test\\resources\\clownfacecolored.JPG";
-        String fullPathJPG=projectPath+"\\"+filePathJPG;
-        String filePathPNG= "src\\test\\resources\\NicePng_house-outline-png_974690.png";
-        String fullPathPNG=projectPath+"\\"+filePathPNG;
-        String filePathPDF= "src\\test\\resources\\NicePng_house-outline-png_974690.png";
-        String fullPathPDF=projectPath+"\\"+filePathPDF;
+        // String pathJPG = "C:\\Users\\Public\\clownfacecolored.JPG";
+        // String pathPNG = "C:\\Users\\Public\\NicePng_house-outline-png_974690.png";
+        // String pathPDF = "C:\\Users\\Public\\OPPOSITES.pdf";
+
+        String projectPath = System.getProperty("user.dir");
+        String filePathJPG = "src\\test\\resources\\clownfacecolored.JPG";
+        String fullPathJPG = projectPath + "\\" + filePathJPG;
+        String filePathPNG = "src\\test\\resources\\NicePng_house-outline-png_974690.png";
+        String fullPathPNG = projectPath + "\\" + filePathPNG;
+        String filePathPDF = "src\\test\\resources\\NicePng_house-outline-png_974690.png";
+        String fullPathPDF = projectPath + "\\" + filePathPDF;
         System.out.println(fullPathJPG);
         System.out.println(fullPathPNG);
         System.out.println(fullPathPDF);
-
 
         crmlyPage.uploadFilesAndImagesBox.sendKeys(fullPathJPG);
         crmlyPage.uploadFilesAndImagesBox.sendKeys(fullPathPNG);
         crmlyPage.uploadFilesAndImagesBox.sendKeys(fullPathPDF);
         BrowserUtils.sleep(2);
+        /*
+        try {
+            LocalFileDetector detector = new LocalFileDetector();
+            File localFileJPG = detector.getLocalFile("C:\\Users\\Public\\clownfacecolored.JPG");
+            ((RemoteWebElement) crmlyPage.uploadFilesAndImagesBox).setFileDetector(detector);
+
+            // enter the absolute file path into the file input field
+            crmlyPage.uploadFilesAndImagesBox.sendKeys(localFileJPG.getAbsolutePath());
+            File localFilePNG = detector.getLocalFile("C:\\Users\\Public\\NicePng_house-outline-png_974690.png");
+            crmlyPage.uploadFilesAndImagesBox.sendKeys(localFilePNG.getAbsolutePath());
+            File localFilePDF = detector.getLocalFile("C:\\Users\\Public\\OPPOSITES.pdf");
+            crmlyPage.uploadFilesAndImagesBox.sendKeys(localFilePDF.getAbsolutePath());
+        } catch (Exception e) {
+            throw new WebDriverException(e);
+
+        }
+         */
+
+
+
     }
 
     @Then("user should see at least three files are uploaded")
@@ -145,7 +167,7 @@ public class CRMLY_Step_Definitions {
     }
 
     @Then("user click insert in text button in order to insert the files and images into the text")
-    public void user_click_button_in_order_to_insert_the_files_and_images_into_the_text(){
+    public void user_click_button_in_order_to_insert_the_files_and_images_into_the_text() {
         for (WebElement InsertInTextButton : crmlyPage.insertInTextButton) {
             InsertInTextButton.click();
             break;
