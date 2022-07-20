@@ -7,7 +7,7 @@ Feature: CRMLY  file upload as message functionality
     When user click message tab and sees message box is open
     And user click upload files icon and upload files and images box is seen
 
-@REM-1367 @wip
+@REM-1367
   Scenario:  User should be able to upload multiple files at the same time (Test with max 3 files.).
     When user should upload at least three files at a time
     Then user should see at least three files are uploaded

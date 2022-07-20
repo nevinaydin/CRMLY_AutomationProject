@@ -43,17 +43,14 @@ public class CRMLY_Step_Definitions {
 
     @Then("user should upload at least three files at a time")
     public void userShouldUploadAtLeastThreeFilesAtATime() {
-        // String pathJPG = "C:\\Users\\Public\\clownfacecolored.JPG";
-        // String pathPNG = "C:\\Users\\Public\\NicePng_house-outline-png_974690.png";
-        // String pathPDF = "C:\\Users\\Public\\OPPOSITES.pdf";
 
         String projectPath = System.getProperty("user.dir");
-        String filePathJPG = "src\\test\\resources\\clownfacecolored.JPG";
-        String fullPathJPG = projectPath + "\\" + filePathJPG;
-        String filePathPNG = "src\\test\\resources\\NicePng_house-outline-png_974690.png";
-        String fullPathPNG = projectPath + "\\" + filePathPNG;
-        String filePathPDF = "src\\test\\resources\\NicePng_house-outline-png_974690.png";
-        String fullPathPDF = projectPath + "\\" + filePathPDF;
+        String filePathJPG = "src/test/resources/filesToUpload/clownfacecolored.JPG";
+        String fullPathJPG = projectPath + "/" + filePathJPG;
+        String filePathPNG = "src/test/resources/filesToUpload/NicePng_house-outline-png_974690.png";
+        String fullPathPNG = projectPath + "/" + filePathPNG;
+        String filePathPDF = "src/test/resources/filesToUpload/OPPOSITES.pdf";
+        String fullPathPDF = projectPath + "/" + filePathPDF;
         System.out.println(fullPathJPG);
         System.out.println(fullPathPNG);
         System.out.println(fullPathPDF);
@@ -65,14 +62,14 @@ public class CRMLY_Step_Definitions {
         /*
         try {
             LocalFileDetector detector = new LocalFileDetector();
-            File localFileJPG = detector.getLocalFile("C:\\Users\\Public\\clownfacecolored.JPG");
+            File localFileJPG = detector.getLocalFile("C:\Users\n\IdeaProjects\CRMLY_AutomationProject\src\test\resources\filesToUpload\clownfacecolored.JPG");
             ((RemoteWebElement) crmlyPage.uploadFilesAndImagesBox).setFileDetector(detector);
 
             // enter the absolute file path into the file input field
             crmlyPage.uploadFilesAndImagesBox.sendKeys(localFileJPG.getAbsolutePath());
-            File localFilePNG = detector.getLocalFile("C:\\Users\\Public\\NicePng_house-outline-png_974690.png");
+            File localFilePNG = detector.getLocalFile("C:\Users\n\IdeaProjects\CRMLY_AutomationProject\src\test\resources\filesToUpload\NicePng_house-outline-png_974690.png");
             crmlyPage.uploadFilesAndImagesBox.sendKeys(localFilePNG.getAbsolutePath());
-            File localFilePDF = detector.getLocalFile("C:\\Users\\Public\\OPPOSITES.pdf");
+            File localFilePDF = detector.getLocalFile("C:\Users\n\IdeaProjects\CRMLY_AutomationProject\src\test\resources\filesToUpload\OPPOSITES.pdf");
             crmlyPage.uploadFilesAndImagesBox.sendKeys(localFilePDF.getAbsolutePath());
         } catch (Exception e) {
             throw new WebDriverException(e);
@@ -100,22 +97,30 @@ public class CRMLY_Step_Definitions {
 
     @Then("user upload files in different formats and see these files are uploaded")
     public void user_upload_files_in_different_formats_and_see_these_files_are_uploaded() {
-        String pathJPG = "C:\\Users\\Public\\clownfacecolored.JPG";
-        String pathPNG = "C:\\Users\\Public\\NicePng_house-outline-png_974690.png";
-        String pathPDF = "C:\\Users\\Public\\OPPOSITES.pdf";
-        String pathDOC = "C:\\Users\\Public\\OPPOSITES.docx";
-        String pathTXT = "C:\\Users\\Public\\Grid_Class_Notes.txt";
-        String pathGIF = "C:\\Users\\Public\\wait_16.gif";
+        String projectPath = System.getProperty("user.dir");
+        String filePathJPG = "src/test/resources/filesToUpload/clownfacecolored.JPG";
+        String fullPathJPG = projectPath + "/" + filePathJPG;
+        String filePathPNG = "src/test/resources/filesToUpload/NicePng_house-outline-png_974690.png";
+        String fullPathPNG = projectPath + "/" + filePathPNG;
+        String filePathPDF = "src/test/resources/filesToUpload/OPPOSITES.pdf";
+        String fullPathPDF = projectPath + "/" + filePathPDF;
+        String filePathDOC = "src/test/resources/filesToUpload/OPPOSITES.docx";
+        String fullPathDOC = projectPath + "/" + filePathDOC;
+        String filePathTXT = "src/test/resources/filesToUpload/Grid_Class_Notes.txt";
+        String fullPathTXT = projectPath + "/" + filePathTXT;
+        String filePathGIF = "src/test/resources/filesToUpload/wait_16.gif";
+        String fullPathGIF = projectPath + "/" + filePathGIF;
 
-        crmlyPage.uploadFilesAndImagesBox.sendKeys(pathJPG);
-        crmlyPage.uploadFilesAndImagesBox.sendKeys(pathPNG);
-        crmlyPage.uploadFilesAndImagesBox.sendKeys(pathPDF);
+
+        crmlyPage.uploadFilesAndImagesBox.sendKeys(fullPathJPG);
+        crmlyPage.uploadFilesAndImagesBox.sendKeys(fullPathPNG);
+        crmlyPage.uploadFilesAndImagesBox.sendKeys(fullPathPDF);
         BrowserUtils.sleep(2);
-        crmlyPage.uploadFilesAndImagesBox.sendKeys(pathDOC);
+        crmlyPage.uploadFilesAndImagesBox.sendKeys(fullPathDOC);
         BrowserUtils.sleep(2);
-        crmlyPage.uploadFilesAndImagesBox.sendKeys(pathTXT);
+        crmlyPage.uploadFilesAndImagesBox.sendKeys(fullPathTXT);
         BrowserUtils.sleep(2);
-        crmlyPage.uploadFilesAndImagesBox.sendKeys(pathGIF);
+        crmlyPage.uploadFilesAndImagesBox.sendKeys(fullPathGIF);
         BrowserUtils.sleep(2);
 
         for (WebElement eachUploadedFile : crmlyPage.filesUploaded) {
@@ -131,10 +136,13 @@ public class CRMLY_Step_Definitions {
 
     @When("user upload pictures")
     public void user_upload_pictures() {
-        String pathJPG = "C:\\Users\\Public\\clownfacecolored.JPG";
-        String pathPNG = "C:\\Users\\Public\\NicePng_house-outline-png_974690.png";
-        crmlyPage.uploadFilesAndImagesBox.sendKeys(pathJPG);
-        crmlyPage.uploadFilesAndImagesBox.sendKeys(pathPNG);
+        String projectPath = System.getProperty("user.dir");
+        String filePathJPG = "src/test/resources/filesToUpload/clownfacecolored.JPG";
+        String fullPathJPG = projectPath + "/" + filePathJPG;
+        String filePathPNG = "src/test/resources/filesToUpload/NicePng_house-outline-png_974690.png";
+        String fullPathPNG = projectPath + "/" + filePathPNG;
+        crmlyPage.uploadFilesAndImagesBox.sendKeys(fullPathJPG);
+        crmlyPage.uploadFilesAndImagesBox.sendKeys(fullPathPNG);
         BrowserUtils.sleep(2);
 
     }
